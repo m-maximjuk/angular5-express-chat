@@ -1,17 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }    from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { routing }        from './app.routing';
-
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
 import { AlertComponent } from './_directives';
-import { AuthGuard } from './_guards';
+import { AuthGuard, UnauthGuard } from './_guards';
 import { AlertService, AuthenticationService } from './_services';
 import { JwtInterceptor } from './_helpers';
 
@@ -26,11 +28,15 @@ import { JwtInterceptor } from './_helpers';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     routing,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastModule.forRoot()
   ],
   providers: [
     AuthGuard,
+    UnauthGuard,
     AlertService,
     AuthenticationService,
     {
