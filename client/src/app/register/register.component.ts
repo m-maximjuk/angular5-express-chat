@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { ToastsManager } from 'ng2-toastr';
 
 import { AlertService, AuthenticationService } from '../_services';
 import { PasswordValidation } from '../_helpers';
@@ -23,11 +22,8 @@ export class RegisterComponent implements OnInit {
     private alertService: AlertService,
     private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
-    public toastr: ToastsManager,
-    vcr: ViewContainerRef
-  ) {
-    this.toastr.setRootViewContainerRef(vcr);
-  }
+    private toastr: ToastsManager
+  ) {}
 
   ngOnInit() {
     this.form = this.formBuilder.group({

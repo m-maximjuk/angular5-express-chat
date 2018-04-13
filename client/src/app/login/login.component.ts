@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ViewContainerRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { ToastsManager } from 'ng2-toastr';
 
 import { AlertService, AuthenticationService } from '../_services';
 
@@ -22,11 +21,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService,
     private alertService: AlertService,
-    public toastr: ToastsManager,
-    vcr: ViewContainerRef
-  ) {
-    this.toastr.setRootViewContainerRef(vcr);
-  }
+    private toastr: ToastsManager,
+  ) {}
 
   ngOnInit() {
     // get return url from route parameters or default to '/'

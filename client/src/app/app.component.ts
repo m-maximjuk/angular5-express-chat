@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
-import { ViewContainerRef } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { ToastsManager } from 'ng2-toastr';
 
 import { AuthenticationService } from './_services';
 
@@ -16,7 +15,7 @@ export class AppComponent {
   constructor(
     private router: Router,
     public authenticationService: AuthenticationService,
-    public toastr: ToastsManager,
+    private toastr: ToastsManager,
     vcr: ViewContainerRef
   ) {
     this.toastr.setRootViewContainerRef(vcr);

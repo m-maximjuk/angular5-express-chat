@@ -36,7 +36,7 @@ export class AuthenticationService {
       });
   }
 
-  register(user: User) {console.log(user);
+  register(user: User) {
     return this.http.post<any>(`${environment.API_URL}/auth/register`, user)
       .map(data => {
         // login successful if there's a jwt token in the response

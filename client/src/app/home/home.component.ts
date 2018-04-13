@@ -15,6 +15,5 @@ export class HomeComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }
