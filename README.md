@@ -50,3 +50,14 @@ $ node index.js
 By default, you can visit the backend API in your web browser at `http://localhost:3000`.
 
 And you can access the frontend by visiting `http://localhost:4200`
+
+# Screenshots
+
+### Login
+
+![Login](/screens/login.png?raw=true)
+
+### Register
+
+![Register](/screens/register.png?raw=true)
+
