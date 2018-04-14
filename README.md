@@ -61,3 +61,6 @@ And you can access the frontend by visiting `http://localhost:4200`
 
 ![Register](/screens/register.png?raw=true)
 
+### Password Reset
+
+![Password Reset](/screens/password-reset.png?raw=true)
