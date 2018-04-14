@@ -7,13 +7,13 @@ export interface ValidationResult {
 
 export class PasswordValidation {
 
-  static MatchPassword(AC: AbstractControl) {
-    let password = AC.get('password').value; // to get value in input tag
-    let confirmPassword = AC.get('confirmPassword').value; // to get value in input tag
+  public static MatchPassword(control: AbstractControl) {
+    let password = control.get('password').value;
+    let confirmPassword = control.get('confirmPassword').value;
     if(password != confirmPassword) {
-      AC.get('confirmPassword').setErrors( {MatchPassword: true} )
+      control.get('confirmPassword').setErrors( {MatchPassword: true} );
     } else {
-      return null
+      return null;
     }
   }
 
@@ -24,7 +24,6 @@ export class PasswordValidation {
     let hasSpecial = /[!@#$%^&*()]/.test(control.value);
     const valid = hasNumber && (hasUpper || hasLower) && hasSpecial;
     if (!valid) {
-      // return what´s not valid
       return { strong: true };
     }
     return null;
