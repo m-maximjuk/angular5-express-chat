@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PasswordStrengthBarModule } from 'ng2-password-strength-bar';
 
 import { routing } from './app.routing';
 
@@ -16,6 +17,7 @@ import { AlertComponent } from './_directives';
 import { AuthGuard, UnauthGuard } from './_guards';
 import { AlertService, AuthenticationService } from './_services';
 import { JwtInterceptor } from './_helpers';
+import { PasswordComponent } from './password/password.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { JwtInterceptor } from './_helpers';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    AlertComponent
+    AlertComponent,
+    PasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { JwtInterceptor } from './_helpers';
     routing,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastModule.forRoot()
+    ToastModule.forRoot(),
+    PasswordStrengthBarModule,
   ],
   providers: [
     AuthGuard,

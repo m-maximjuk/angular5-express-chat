@@ -36,6 +36,13 @@ export class AuthenticationService {
       });
   }
 
+  resetPwd(oldPassword: string, password: string) {
+    return this.http.post<any>('http://192.168.0.27:8080/changepwd', { oldpwd: oldPassword, newpwd: password })
+      .map(data => {
+        return data;
+      });
+  }
+
   register(user: User) {
     return this.http.post<any>(`${environment.API_URL}/auth/register`, user)
       .map(data => {
