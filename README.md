@@ -13,6 +13,8 @@ Backend:
 Frontend:
 
 * Angular5
+* Socket-io-client
+* Angular CLI
 
 ## Prerequisites
 
