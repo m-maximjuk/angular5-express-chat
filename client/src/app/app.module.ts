@@ -17,7 +17,8 @@ import { AlertComponent } from './_directives';
 import { AuthGuard, UnauthGuard } from './_guards';
 import { AlertService, AuthenticationService } from './_services';
 import { JwtInterceptor } from './_helpers';
-import { PasswordComponent } from './password/password.component';
+import { PasswordComponent } from './password';
+import { ChatComponent } from './chat';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PasswordComponent } from './password/password.component';
     LoginComponent,
     RegisterComponent,
     AlertComponent,
-    PasswordComponent
+    PasswordComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
