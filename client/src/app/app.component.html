@@ -4,6 +4,7 @@
     <ul class="nav navbar-nav" routerLinkActive="active">
       <li class="nav-item" *ngIf="!authenticationService.isAuthenticated()"><a class="nav-link" routerLink="login">Login</a></li>
       <li class="nav-item" *ngIf="!authenticationService.isAuthenticated()"><a class="nav-link" routerLink="register">Register</a></li>
+      <li class="nav-item" *ngIf="authenticationService.isAuthenticated()"><a class="nav-link" routerLink="chat">Chat</a></li>
       <li class="nav-item" *ngIf="authenticationService.isAuthenticated()"><a class="nav-link" routerLink="password/reset">Password Reset</a></li>
       <li class="nav-item" *ngIf="authenticationService.isAuthenticated()"><a class="nav-link" href="javascript:void(0);" (click)="logout()">Logout</a></li>
     </ul>

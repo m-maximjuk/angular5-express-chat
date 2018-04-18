@@ -1,3 +1,33 @@
-<p>
-  chat works!
-</p>
+<div class="col-sm-12">
+  <h2>Chat</h2>
+  <div class="panel panel-default">
+    <div class="panel-body chat-body">
+      <ol class="chat">
+        <li class="other">
+          <span class="username">AAA</span>
+          <div class="msg">
+            <p>Text1</p>
+            <time>2017.12.04</time>
+          </div>
+        </li>
+        <li class="self">
+          <span class="username">BBB</span>
+          <div class="msg">
+            <p>Text1</p>
+            <time>2017.12.05</time>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+  <form onSubmit={}>
+    <div class="row">
+      <div class="col-sm-8 col-md-10">
+        <textarea name="message" class="form-control" placeholder="Type here to chat..." ></textarea>
+      </div>
+      <div class="col-sm-4 col-md-2">
+        <button action="submit" class="btn btn-primary btn-block">Send</button>
+      </div>
+    </div>
+  </form>
+</div>
