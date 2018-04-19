@@ -1,8 +1,11 @@
 import { User } from './user';
-import { Action } from './action';
 
 export interface Message {
-  from?: User;
-  content?: any;
-  action?: Action;
+  _id?: string,
+  author?: {
+    _id: string,
+    username: string
+  };
+  body?: any,
+  createdAt?: any;
 }

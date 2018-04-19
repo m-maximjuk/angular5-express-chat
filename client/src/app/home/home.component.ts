@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuthenticationService } from '../_services';
 import { User } from '../_models';
 
 @Component({
@@ -11,8 +12,8 @@ import { User } from '../_models';
 export class HomeComponent implements OnInit {
   currentUser: User;
 
-  constructor() {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  constructor(public authenticationService: AuthenticationService,) {
+    this.currentUser = authenticationService.getCurrentUser();
   }
 
   ngOnInit() {}

@@ -15,7 +15,7 @@ import { RegisterComponent } from './register/register.component';
 
 import { AlertComponent } from './_directives';
 import { AuthGuard, UnauthGuard } from './_guards';
-import { AlertService, AuthenticationService } from './_services';
+import { AlertService, AuthenticationService, SocketService } from './_services';
 import { JwtInterceptor } from './_helpers';
 import { PasswordComponent } from './password';
 import { ChatComponent } from './chat';
@@ -45,6 +45,7 @@ import { ChatComponent } from './chat';
     UnauthGuard,
     AlertService,
     AuthenticationService,
+    SocketService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,

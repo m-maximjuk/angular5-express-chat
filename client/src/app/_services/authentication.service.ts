@@ -23,8 +23,14 @@ export class AuthenticationService {
     }
   }
 
+  getCurrentUser(): any {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    return currentUser;
+  }
+
   login(email: string, password: string) {
-    return this.http.post<any>(`${environment.API_URL}/auth/login`, { email: email, password: password })
+    return this.http.post<any>(`${environment.API_URL}/api/auth/login`, { email: email, password: password })
       .map(data => {
         // login successful if there's a jwt token in the response
         if (data && data.token) {
@@ -44,7 +50,7 @@ export class AuthenticationService {
   }
 
   register(user: User) {
-    return this.http.post<any>(`${environment.API_URL}/auth/register`, user)
+    return this.http.post<any>(`${environment.API_URL}/api/auth/register`, user)
       .map(data => {
         // login successful if there's a jwt token in the response
         if (data && data.token) {
