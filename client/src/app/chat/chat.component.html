@@ -1,7 +1,7 @@
 <div class="col-sm-12">
   <h2>Chat</h2>
   <div class="panel panel-default">
-    <div class="panel-body chat-body" >
+    <div class="panel-body chat-body" #chatView>
       <ol class="chat">
         <ng-container *ngFor="let message of messages">
           <li [ngClass]="[message.author._id === currentUser._id? 'self': 'other']" *ngIf="message.author">
