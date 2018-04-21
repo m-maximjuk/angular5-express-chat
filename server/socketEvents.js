@@ -19,6 +19,11 @@ exports = module.exports = function (io) {
       client.broadcast.emit('thread', data);
     });
 
+    client.on('typing', (data) => {
+      //client.emit('typing', data);
+      client.broadcast.emit('typing', data);
+    });
+
     client.on('disconnect', () => {
       console.log('user disconnected');
     });

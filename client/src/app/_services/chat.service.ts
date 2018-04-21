@@ -5,7 +5,7 @@ import * as socketIo from 'socket.io-client';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as moment from 'moment';
 
-import { Message, Event, User } from '../_models';
+import { Message, Event, User, Typing } from '../_models';
 import { AuthenticationService } from './authentication.service';
 import { environment } from '../../environments/environment';
 
@@ -29,9 +29,19 @@ export class SocketService {
     this.socket.emit('message', message);
   }
 
+  public typeMessage(typing: Typing): void {
+    this.socket.emit('typing', typing);
+  }
+
   public onMessage(): Observable<Message> {
     return new Observable<Message>(observer => {
       this.socket.on('thread', (data: Message) => observer.next(data));
+    });
+  }
+
+  public statusMessage(): Observable<Typing> {
+    return new Observable<Typing>(observer => {
+      this.socket.on('typing', (data: Typing) => observer.next(data));
     });
   }
 

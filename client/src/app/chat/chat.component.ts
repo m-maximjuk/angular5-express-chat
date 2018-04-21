@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
-import { Event, Message, User } from '../_models';
+import { Event, Message, User, Typing } from '../_models';
 import { AlertService, SocketService, AuthenticationService } from '../_services';
 
 @Component({
@@ -15,6 +15,9 @@ export class ChatComponent implements OnInit {
   messageContent: string;
   ioConnection: any;
   currentUser: User;
+  TypeTimer: any;
+  status: Object = {};
+  objectKeys = Object.keys;
 
   constructor(
     private alertService: AlertService,
@@ -59,6 +62,11 @@ export class ChatComponent implements OnInit {
         this.messages.push(message);
       });
 
+    this.ioConnection = this.socketService.statusMessage()
+      .subscribe((status: Typing) => {
+        this.status[status.username] = status.type;
+      });
+
     this.socketService.onEvent(Event.CONNECT)
       .subscribe(() => {
         console.log('connected');
@@ -89,5 +97,23 @@ export class ChatComponent implements OnInit {
         error => {
           this.alertService.error(error.error.error?error.error.error:error.message);
         });
+  }
+
+  public keyChange(): void {
+    window.clearTimeout(this.TypeTimer);
+    this.socketService.typeMessage({username:this.currentUser.username, type:true});
+  }
+
+  public keyUp(): void {
+    let that = this;
+    window.clearTimeout(this.TypeTimer);
+    this.TypeTimer= window.setTimeout( function() {
+      that.socketService.typeMessage({username:that.currentUser.username, type:false});
+     }, 3000);
+  }
+
+  public keyDown(): void {
+    window.clearTimeout(this.TypeTimer);
+    this.socketService.typeMessage({username:this.currentUser.username, type:true});
   }
 }

@@ -20,7 +20,11 @@
       <div class="col-sm-8 col-md-10">
         <textarea name="message" class="form-control" placeholder="Type here to chat..."
                   [(ngModel)]="messageContent" 
-                  (keyup.enter)="sendMessage(messageContent)"></textarea>
+                  (keyup.enter)="sendMessage(messageContent)"
+                  (ngModelChange)="keyChange()"
+                  (keyup)="keyUp()"
+                  (keydown)="keyDown()"></textarea>
+        <p *ngFor="let key of objectKeys(status)">{{status[key]?key + ' is typing':''}}</p>
       </div>
       <div class="col-sm-4 col-md-2">
         <button type="submit" class="btn btn-primary btn-block">Send</button>
